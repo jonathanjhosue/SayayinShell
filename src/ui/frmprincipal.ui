@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmPrincipal</class>
+ <widget class="QMainWindow" name="frmPrincipal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>684</width>
+    <height>557</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>frmPrincipal</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="background">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>172</red>
+         <green>178</green>
+         <blue>184</blue>
+        </color>
+       </brush>
+      </property>
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>684</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEdicion">
+    <property name="title">
+     <string>Edición</string>
+    </property>
+    <addaction name="actionDeshacer"/>
+    <addaction name="actionRehacer"/>
+    <addaction name="separator"/>
+    <addaction name="actionCortar"/>
+    <addaction name="actionCopiar"/>
+    <addaction name="actionPegar"/>
+    <addaction name="separator"/>
+    <addaction name="actionSeleccionar_Todo"/>
+   </widget>
+   <widget class="QMenu" name="menuProyecto">
+    <property name="title">
+     <string>Proyecto</string>
+    </property>
+    <addaction name="actionNuevoProyecto"/>
+    <addaction name="actionLimpiarCache"/>
+    <addaction name="actionLimpiarLog"/>
+    <addaction name="actionCargarDatos"/>
+    <addaction name="actionInstalarAgregados"/>
+    <addaction name="actionGuardar"/>
+    <addaction name="actionGuardar_Como"/>
+    <addaction name="actionCerrar"/>
+    <addaction name="actionCerrarTodo"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionAbrirProyecto"/>
+   </widget>
+   <widget class="QMenu" name="menuBasedeDatos">
+    <property name="title">
+     <string>Base de Datos</string>
+    </property>
+    <addaction name="actionDatosIniciales"/>
+    <addaction name="actionEsquema"/>
+    <addaction name="actionSql"/>
+    <addaction name="actionConexion"/>
+   </widget>
+   <widget class="QMenu" name="menuModelo">
+    <property name="title">
+     <string>Modelo</string>
+    </property>
+    <addaction name="actionFormularios"/>
+    <addaction name="actionFiltros"/>
+    <addaction name="actionClases"/>
+    <addaction name="actionORM_2"/>
+   </widget>
+   <widget class="QMenu" name="menuSymfony">
+    <property name="title">
+     <string>Symfony</string>
+    </property>
+    <addaction name="actionConfiguracion"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuM_dulos">
+    <property name="title">
+     <string>Módulos</string>
+    </property>
+    <addaction name="actionNuevo_Modulo"/>
+   </widget>
+   <widget class="QMenu" name="menuEjecutar">
+    <property name="title">
+     <string>Ejecutar</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionDesarrollo"/>
+    <addaction name="actionProduccion"/>
+    <addaction name="separator"/>
+    <addaction name="actionModuloActualDes"/>
+    <addaction name="actionModuloActualProd"/>
+   </widget>
+   <widget class="QMenu" name="menuVentana">
+    <property name="title">
+     <string>Ventana</string>
+    </property>
+    <addaction name="actionMosaico"/>
+    <addaction name="actionCascada"/>
+    <addaction name="actionAnterior"/>
+    <addaction name="actionSiguiente"/>
+   </widget>
+   <addaction name="menuProyecto"/>
+   <addaction name="menuEdicion"/>
+   <addaction name="menuEjecutar"/>
+   <addaction name="menuM_dulos"/>
+   <addaction name="menuModelo"/>
+   <addaction name="menuBasedeDatos"/>
+   <addaction name="menuSymfony"/>
+   <addaction name="menuAyuda"/>
+   <addaction name="menuVentana"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNuevoProyecto"/>
+   <addaction name="actionNuevo_Modulo"/>
+   <addaction name="separator"/>
+   <addaction name="actionDesarrollo"/>
+   <addaction name="actionProduccion"/>
+   <addaction name="actionConfiguracion"/>
+   <addaction name="actionLimpiarCache"/>
+   <addaction name="actionLimpiarLog"/>
+   <addaction name="separator"/>
+   <addaction name="actionEsquema"/>
+   <addaction name="actionConexion"/>
+   <addaction name="actionBasedeDatos"/>
+   <addaction name="actionDatosIniciales"/>
+   <addaction name="actionCargarDatos"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Módulos</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget_3">
+       <column>
+        <property name="text">
+         <string>App</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Módulo</string>
+        </property>
+        <property name="background">
+         <color>
+          <red>255</red>
+          <green>255</green>
+          <blue>0</blue>
+         </color>
+        </property>
+        <property name="foreground">
+         <brush brushstyle="NoBrush">
+          <color alpha="255">
+           <red>100</red>
+           <green>100</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>-1</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Nuevo</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Editar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Borrar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="windowTitle">
+    <string>Consola</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item>
+      <widget class="QTextEdit" name="textEdit"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_3">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Proyecto</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_4">
+   <property name="windowTitle">
+    <string>Formularios</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_5">
+   <property name="windowTitle">
+    <string>Modelo</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_5">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget_2">
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_7">
+   <property name="windowTitle">
+    <string>Propiedades</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_7">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget_4">
+       <column>
+        <property name="text">
+         <string>Propiedad</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Valor</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_8">
+   <property name="windowTitle">
+    <string>Filtros</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_8">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QListWidget" name="listWidget_2"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionConfiguracion">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/configure.png</normaloff>:/acciones/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>Configuración</string>
+   </property>
+  </action>
+  <action name="actionBasedeDatos">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/network-server-database.png</normaloff>:/acciones/network-server-database.png</iconset>
+   </property>
+   <property name="text">
+    <string>Base de Datos</string>
+   </property>
+  </action>
+  <action name="actionORM">
+   <property name="text">
+    <string>ORM</string>
+   </property>
+  </action>
+  <action name="actionLimpiarCache">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/trash-empty.png</normaloff>:/acciones/trash-empty.png</iconset>
+   </property>
+   <property name="text">
+    <string>Limpiar Cache</string>
+   </property>
+  </action>
+  <action name="actionLimpiarLog">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/edit-clear.png</normaloff>:/acciones/edit-clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Limpiar Log</string>
+   </property>
+  </action>
+  <action name="actionDatosIniciales">
+   <property name="icon">
+    <iconset resource="iconos.qrc">
+     <normaloff>:/acciones/Recursos/solicitud.png</normaloff>:/acciones/Recursos/solicitud.png</iconset>
+   </property>
+   <property name="text">
+    <string>Datos Iniciales</string>
+   </property>
+  </action>
+  <action name="actionEsquema">
+   <property name="icon">
+    <iconset resource="iconos.qrc">
+     <normaloff>:/acciones/Recursos/recursos1.png</normaloff>:/acciones/Recursos/recursos1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Esquema</string>
+   </property>
+  </action>
+  <action name="actionSql">
+   <property name="text">
+    <string>Sql</string>
+   </property>
+  </action>
+  <action name="actionFormularios">
+   <property name="text">
+    <string>Formularios</string>
+   </property>
+  </action>
+  <action name="actionFiltros">
+   <property name="text">
+    <string>Filtros</string>
+   </property>
+  </action>
+  <action name="actionClases">
+   <property name="text">
+    <string>Clases</string>
+   </property>
+  </action>
+  <action name="actionConexion">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/network-connect.png</normaloff>:/acciones/network-connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>Conexion</string>
+   </property>
+  </action>
+  <action name="actionORM_2">
+   <property name="text">
+    <string>ORM</string>
+   </property>
+  </action>
+  <action name="actionNuevo_Modulo">
+   <property name="icon">
+    <iconset resource="iconos.qrc">
+     <normaloff>:/acciones/Recursos/appointment-new.png</normaloff>:/acciones/Recursos/appointment-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo Módulo</string>
+   </property>
+  </action>
+  <action name="actionCargarDatos">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/acciones/view-sort-ascending.png</normaloff>:/acciones/view-sort-ascending.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cargar Datos</string>
+   </property>
+  </action>
+  <action name="actionInstalarAgregados">
+   <property name="text">
+    <string>Instalar Agregados</string>
+   </property>
+  </action>
+  <action name="actionNuevoProyecto">
+   <property name="icon">
+    <iconset resource="iconos.qrc">
+     <normaloff>:/acciones/Recursos/project.png</normaloff>:/acciones/Recursos/project.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo Proyecto</string>
+   </property>
+   <property name="toolTip">
+    <string>Nuevo Proyecto</string>
+   </property>
+  </action>
+  <action name="actionDesarrollo">
+   <property name="icon">
+    <iconset>
+     <normaloff>Recursos/arrow-right.png</normaloff>Recursos/arrow-right.png</iconset>
+   </property>
+   <property name="text">
+    <string>Desarrollo</string>
+   </property>
+  </action>
+  <action name="actionProduccion">
+   <property name="icon">
+    <iconset resource="iconos.qrc">
+     <normaloff>:/acciones/Recursos/mantenimiento.png</normaloff>:/acciones/Recursos/mantenimiento.png</iconset>
+   </property>
+   <property name="text">
+    <string>Producción</string>
+   </property>
+  </action>
+  <action name="actionModuloActualProd">
+   <property name="text">
+    <string>Módulo Actual (Prod)</string>
+   </property>
+   <property name="iconText">
+    <string>Ejecutar Módulo Actual (Prod)</string>
+   </property>
+   <property name="toolTip">
+    <string>Ejecutar Módulo Actual (Prod)</string>
+   </property>
+  </action>
+  <action name="actionModuloActualDes">
+   <property name="text">
+    <string>Módulo Actual (Des)</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Como">
+   <property name="text">
+    <string>Guardar Como</string>
+   </property>
+  </action>
+  <action name="actionDeshacer">
+   <property name="text">
+    <string>Deshacer</string>
+   </property>
+  </action>
+  <action name="actionRehacer">
+   <property name="text">
+    <string>Rehacer</string>
+   </property>
+  </action>
+  <action name="actionCortar">
+   <property name="text">
+    <string>Cortar</string>
+   </property>
+  </action>
+  <action name="actionCopiar">
+   <property name="text">
+    <string>Copiar</string>
+   </property>
+  </action>
+  <action name="actionPegar">
+   <property name="text">
+    <string>Pegar</string>
+   </property>
+  </action>
+  <action name="actionSeleccionar_Todo">
+   <property name="text">
+    <string>Seleccionar Todo</string>
+   </property>
+  </action>
+  <action name="actionCerrar">
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+  </action>
+  <action name="actionCerrarTodo">
+   <property name="text">
+    <string>Cerrar Todo</string>
+   </property>
+  </action>
+  <action name="actionMosaico">
+   <property name="text">
+    <string>Mosaico</string>
+   </property>
+  </action>
+  <action name="actionCascada">
+   <property name="text">
+    <string>Cascada</string>
+   </property>
+  </action>
+  <action name="actionAnterior">
+   <property name="text">
+    <string>Anterior</string>
+   </property>
+  </action>
+  <action name="actionSiguiente">
+   <property name="text">
+    <string>Siguiente</string>
+   </property>
+  </action>
+  <action name="actionAbrir">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionAbrirProyecto">
+   <property name="text">
+    <string>Abrir Proyecto</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="iconos.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionAbrirProyecto</sender>
+   <signal>triggered()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>AbrirProyecto()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAbrir</sender>
+   <signal>activated()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>Abrir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDesarrollo</sender>
+   <signal>triggered()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>EjecutarDesarrollo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLimpiarCache</sender>
+   <signal>activated()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>LimpiarCache()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCargarDatos</sender>
+   <signal>activated()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>CargarDatos()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNuevoProyecto</sender>
+   <signal>activated()</signal>
+   <receiver>frmPrincipal</receiver>
+   <slot>NuevoProyecto()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>AbrirProyecto()</slot>
+  <slot>Abrir()</slot>
+  <slot>AbrirPreferencias()</slot>
+  <slot>AbrirAcercade()</slot>
+  <slot>EjecutarDesarrollo()</slot>
+  <slot>LimpiarCache()</slot>
+  <slot>CargarDatos()</slot>
+  <slot>NuevoProyecto()</slot>
+ </slots>
+</ui>

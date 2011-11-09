@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+	<kcfgfile name="sayayinshellrc" />
+	<group name="General">
+		<entry name="sloppyFocus" type="bool">
+			<label>Focus follows mouse</label>
+			<default>false</default>
+		</entry>
+		<entry name="startMaximized" type="bool">
+			<label>Start maximized</label>
+			<default>true</default>
+		</entry>
+		<entry name="numRows" type="UInt" min="1">
+			<label>Number of rows</label>
+			<default>2</default>
+			<min>1</min>
+		</entry>
+		<entry name="numCols" type="UInt" min="1">
+			<label>Number of columns</label>
+			<default>2</default>
+			<min>1</min>
+		</entry>
+	</group>
+	<group name="Shutdown">
+		<entry name="queryClose" type="bool">
+			<label>Ask before terminating running processes</label>
+			<default>true</default>
+		</entry>
+	</group>
+</kcfg>

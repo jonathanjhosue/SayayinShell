@@ -1,0 +1,4 @@
+File=sayayinshell.kcfg
+ClassName=Settings
+Singleton=true
+SetUserTexts=true
