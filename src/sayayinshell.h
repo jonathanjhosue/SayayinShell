@@ -3,6 +3,15 @@
 
 #include <kparts/mainwindow.h>
 
+
+class Konsole;
+class CentralView;
+
+namespace KParts
+{
+	class ReadOnlyPart;
+}
+
 /**
  * This is the application "Shell".  It has a menubar, toolbar, and
  * statusbar but relies on the "Part" to do all the real work.
@@ -15,18 +24,11 @@ class SayayinShell : public KParts::MainWindow
 {
     Q_OBJECT
 public:
-    /**
-     * Default Constructor
-     */
     SayayinShell();
-
-    /**
-     * Default Destructor
-     */
     virtual ~SayayinShell();
 
     /**
-     * Use this method to load whatever file/URL you have
+     * Metodo para cargar el archivo para personalizar el entorno
      */
     void load(const KUrl& url);
 
@@ -43,6 +45,7 @@ protected:
      * with @ref saveProperties
      */
     void readProperties(const KConfigGroup &);
+    Konsole* addPart(Konsole* part=0);
 
 private slots:
     void fileNew();
@@ -51,12 +54,16 @@ private slots:
     void optionsConfigureToolbars();
 
     void applyNewToolbarConfig();
+    void optionsPreferences();
+    void settingsChanged();
 
 private:
+    void setupUi();
     void setupActions();
+    CentralView *m_view;
 
 private:
-    KParts::ReadWritePart *m_part;
+    KParts::ReadOnlyPart *m_part;
 };
 
 #endif // SAYAYINSHELL_H

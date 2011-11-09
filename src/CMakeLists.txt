@@ -1,7 +1,12 @@
 set(sayayinshell_SRCS
    main.cpp
    sayayinshell.cpp
+   konsole.cpp
  )
+
+kde4_add_kcfg_files(sayayinshell_SRCS
+	settings.kcfgc
+)
 
 kde4_add_executable(sayayinshell ${sayayinshell_SRCS})
 
@@ -10,6 +15,7 @@ target_link_libraries(sayayinshell ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS})
 ########### install files ###############
 install(TARGETS sayayinshell ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES sayayinshell.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install(FILES sayayinshell.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install( FILES sayayinshell_shell.rc  DESTINATION  ${DATA_INSTALL_DIR}/sayayinshell )
 
 
@@ -29,3 +35,5 @@ install( FILES sayayinshell_part.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES sayayinshell_part.rc  DESTINATION  ${DATA_INSTALL_DIR}/sayayinshellpart )
 
 install(TARGETS sayayinshellpart  DESTINATION ${PLUGIN_INSTALL_DIR} )
+
+add_subdirectory(ui)

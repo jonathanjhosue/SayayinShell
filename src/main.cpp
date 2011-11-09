@@ -3,31 +3,34 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
+#include "settings.h"
 
 static const char description[] =
-    I18N_NOOP("A KDE KPart Application");
+    I18N_NOOP("La consola para los que no nos gusta");
 
-static const char version[] = "%{VERSION}";
+static const char version[] = "0.1";
 
 int main(int argc, char **argv)
 {
-    KAboutData about("sayayinshell", 0, ki18n("SayayinShell"), version, ki18n(description), KAboutData::License_GPL, ki18n("(C) 2008 %{AUTHOR}"), KLocalizedString(), 0, "%{EMAIL}");
-    about.addAuthor( ki18n("%{AUTHOR}"), KLocalizedString(), "%{EMAIL}" );
+    KAboutData about("sayayinshell", 0, ki18n("SayayinShell"), version, ki18n(description), KAboutData::License_GPL, ki18n("(C) 2011 Jonathan J. Sánchez Ugalde"), KLocalizedString(), 0, "sayayinshell@desarrollo-libre.org");
+    about.addAuthor( ki18n("Jonathan Sánchez Ugalde"), KLocalizedString(), "jonathan@desarrollo-libre.org" );
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
-    options.add("+[URL]", ki18n( "Document to open" ));
+    options.add("+[entorno]", ki18n( "Entorno a configurar" ));
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
 
     // see if we are starting with session management
     if (app.isSessionRestored())
-        RESTORE(SayayinShell)
+        kRestoreMainWindows<SayayinShell>();
     else
     {
         // no session.. just start up normally
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
+	SayayinShell *ventaPrincipal = new SayayinShell;
+        ventaPrincipal->show();
+	/*
         if ( args->count() == 0 )
         {
         SayayinShell *widget = new SayayinShell;
@@ -43,6 +46,14 @@ int main(int argc, char **argv)
                 widget->load( args->url( i ) );
             }
         }
+        */
+	app.setTopWidget(ventaPrincipal);
+	
+	if (Settings::startMaximized())
+		ventaPrincipal->showMaximized();
+	else
+		ventaPrincipal->show();
+	
         args->clear();
     }
 
