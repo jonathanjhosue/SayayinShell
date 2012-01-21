@@ -3,6 +3,7 @@
 
 #include <kparts/mainwindow.h>
 
+#include "ui_frmprincipal.h"
 
 class Konsole;
 class CentralView;
@@ -60,10 +61,10 @@ private slots:
 private:
     void setupUi();
     void setupActions();
-    CentralView *m_view;
-
-private:
+    //CentralView *m_view;
     KParts::ReadOnlyPart *m_part;
+    Ui::frmPrincipal *ui;
+    
 };
 
 #endif // SAYAYINSHELL_H

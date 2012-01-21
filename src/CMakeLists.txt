@@ -4,6 +4,8 @@ set(sayayinshell_SRCS
    konsole.cpp
  )
 
+kde4_add_ui_files(sayayinshell_SRCS  ui/frmprincipal.ui)
+
 kde4_add_kcfg_files(sayayinshell_SRCS
 	settings.kcfgc
 )

@@ -2,14 +2,39 @@
 BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x02\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x18\x00S\x00a\x00y\x00a\x00y\x00i\x00n\x00S\x00h\x00e\x00l\x00l\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x18\x00S\x00a\x00y\x00a\x00y\x00i\x00n\x00S\x00h\x00e\x00l\x00l\x00\x00\x00\x06\x00s\x00r\x00c)
 
 [CMake]
-BuildDirs=/home/jonathan/projects/SayayinShell/build
+BuildDirs=/home/jonathan/Proyectos/SayayinShell/build
 CMakeDir=/usr/share/cmake/Modules
 Current CMake Binary=file:///usr/bin/cmake
-CurrentBuildDir=file:///home/jonathan/projects/SayayinShell/build
+CurrentBuildDir=file:///home/jonathan/Proyectos/SayayinShell/build
 CurrentBuildType=Debug
 CurrentInstallDir=
 Extra Arguments=
 ProjectRootRelative=./
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=Nueva configuración Aplicación nativa
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
+Dependency Action=Nothing
+EnvironmentGroup=default
+Executable=
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=SayayinShell,src,sayayinshell
+Use External Terminal=false
+Working Directory=
+isExecutable=false
+
+[MakeBuilder]
+Default Make Environment Profile=0
+Number Of Jobs=1
 
 [Project]
 VersionControlSupport=kdevgit

@@ -8,12 +8,22 @@
 static const char description[] =
     I18N_NOOP("La consola para los que no nos gusta");
 
-static const char version[] = "0.1";
+static const char version[] = "%";
 
 int main(int argc, char **argv)
 {
-    KAboutData about("sayayinshell", 0, ki18n("SayayinShell"), version, ki18n(description), KAboutData::License_GPL, ki18n("(C) 2011 Jonathan J. Sánchez Ugalde"), KLocalizedString(), 0, "sayayinshell@desarrollo-libre.org");
+    KAboutData about("sayayinshell", 0, 
+		     ki18n("SayayinShell"), 
+		     version, 
+		     ki18n(description), 
+		     KAboutData::License_GPL, 
+		     ki18n("(C) 2012 Jonathan J. Sánchez Ugalde"), KLocalizedString(), 0, "sayayinshell@desarrollo-libre.org");
     about.addAuthor( ki18n("Jonathan Sánchez Ugalde"), KLocalizedString(), "jonathan@desarrollo-libre.org" );
+    
+    about.setProgramIconName("system-file-manager");
+    
+    
+    
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;

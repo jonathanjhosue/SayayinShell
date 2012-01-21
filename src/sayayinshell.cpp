@@ -27,12 +27,14 @@
 #include <QtGui/QLayout>
 #include "settings.h"
 
+
+
 SayayinShell::SayayinShell()
-    : KParts::MainWindow( )
+    : KParts::MainWindow( ),ui(new Ui::frmPrincipal)
 {
     // set the shell's ui resource file
     setXMLFile("sayayinshell_shell.rc");
-
+  
     // then, setup our actions
     setupActions();
     setupUi();
@@ -162,6 +164,13 @@ void SayayinShell::readProperties(const KConfigGroup & /*config*/)
 
 void SayayinShell::fileNew()
 {
+    KMessageBox *uno= new KMessageBox;
+    
+    uno->about(this,QString("Hola prueba"),QString("Hola"));
+    //QObjectList hola= centralWidget()->layout()->;
+    
+    //uno->about(this,QString::number(hola.size()),QString::number(hola.size()));
+    //hola->sendInput("hola");
     // this slot is called whenever the File->New menu is selected,
     // the New shortcut is pressed (usually CTRL+N) or the New toolbar
     // button is clicked
@@ -233,6 +242,10 @@ void SayayinShell::fileOpen()
 void SayayinShell::setupUi()
 {
 	QWidget* centralWidget = new QWidget(this, 0);
+	QWidget* consola_panel = new QWidget(this, 0);
+	Konsole* partModCOnsola= new Konsole(consola_panel,new QHBoxLayout(consola_panel));
+	//partModCOnsola->sendInput("ls\n");
+	
 	/*
 	QGridLayout* grid = new QGridLayout(centralWidget);
 
@@ -242,8 +255,23 @@ void SayayinShell::setupUi()
 */
 	//QWidget* contenedor = new QWidget(this,0);
 	QHBoxLayout *layout=new QHBoxLayout(centralWidget);
-	setCentralWidget(centralWidget);
+	
+	//setCentralWidget(centralWidget);
 	actionCollection()->addAssociatedWidget(centralWidget);
+	ui->setupUi(this);
+	ui->dockWidget_2->setWidget(consola_panel);
+	
+	
+	QTreeWidget *treeWidget = new QTreeWidget();
+	treeWidget->setColumnCount(1);
+	QList<QTreeWidgetItem *> items;
+	for (int i = 0; i < 10; ++i)
+	    items.append(new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString("item: %1").arg(i))));
+	treeWidget->insertTopLevelItems(0, items);
+	
+	ui->dockWidget_3->setWidget(treeWidget);
+	
+	setCentralWidget(centralWidget);
 
 	/*for (int i = 0; i < rows; ++i)
 	{
@@ -265,8 +293,9 @@ void SayayinShell::setupUi()
 	
 	//setWindowIcon(KIcon("quadkonsole4"));
 
-	Konsole* part = new Konsole(centralWidget, layout);;
+	Konsole* part = new Konsole(centralWidget, layout);
 	//addPart( part);
+	
 	
 	setupGUI();
 
